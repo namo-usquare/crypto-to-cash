@@ -50,15 +50,15 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <header className="relative z-10">
-        <nav className="max-w-6xl mx-auto px-4 py-4 flex justify-end items-center">
+      <header className=" z-10 fixed w-full bg-black">
+        <nav className=" mx-auto px-8 mr-8 py-4 flex justify-end items-center">
           <div className="flex items-center gap-8">
             <Link href="#how-it-works" className="hover:text-green-400 transition-colors">
               How it works
             </Link>
             <Link href="#testimonials" className="hover:text-green-400 transition-colors">
               Testimonials
-            </Link>
+            </Link> 
             <Link href="#faqs" className="hover:text-green-400 transition-colors">
               FAQs
             </Link>
@@ -68,9 +68,10 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-16 pb-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col items-center text-center mb-12">
+      <section className="relative z-10  h-screen flex items-center justify-center ">
+        <div className="w-full mx-auto px-4 flex flex-row items-center text-center justify-around ">
+          <div className="flex flex-col items-center text-center ">
+            <div className="flex flex-col items-center text-center mb-12">
             <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-3xl"
               initial="hidden"
@@ -100,7 +101,7 @@ export default function Home() {
                 CONVERT CRYPTO NOW
               </Button>
             </motion.div>
-
+          </div>
             <motion.div
               className="flex justify-center gap-8 mt-8"
               initial={{ opacity: 0 }}
@@ -152,9 +153,11 @@ export default function Home() {
             How it works
           </motion.h2>
 
-          <div className="flex justify-center gap-16">
+          <div className="flex justify-between flex-col gap-16">
+            <div className="flex flex-row items-center justify-between text-center mb-12">
             <StepCard number={1} title="Send Crypto" delay={0} />
             <StepCard number={2} title="Track Delivery" delay={0.2} />
+            </div>
             <StepCard number={3} title="Receive Cash" delay={0.4} />
           </div>
         </div>
@@ -441,7 +444,7 @@ function StepCard({ number, title, delay }: { number: number; title: string; del
       transition={{ duration: 0.6, delay }}
     >
       <motion.div
-        className="flex items-center justify-center w-16 h-16 rounded-full bg-[#1a2e4c] text-white text-xl font-bold mb-6"
+        className="flex items-center justify-center w-16 h-16 rounded-full bg-[#1a2e4c] text-green-400 text-xl font-bold mb-6"
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
@@ -467,7 +470,7 @@ function TestimonialCard({
 }) {
   return (
     <motion.div
-      className="bg-[#0c0c10] p-6 rounded-xl"
+      className="bg-white p-6 rounded-xl"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -479,14 +482,14 @@ function TestimonialCard({
           <span key={i}>★</span>
         ))}
       </div>
-      <p className="text-gray-300 mb-4">{text}</p>
+      <p className="text-black  mb-4">{text}</p>
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-gray-700 rounded-full overflow-hidden">
+          <div className="w-8 h-8 bg-gray-700 rounded-full overflow-hidden">
           <Image src="/placeholder.svg?height=32&width=32" alt={name} width={32} height={32} />
         </div>
         <div>
           <p className="font-medium">{name}</p>
-          <p className="text-sm text-gray-400">{location}</p>
+          <p className="text-sm text-black">{location}</p>
         </div>
       </div>
     </motion.div>
@@ -495,11 +498,11 @@ function TestimonialCard({
 
 function FaqItem({ value, question, answer }: { value: string; question: string; answer: string }) {
   return (
-    <AccordionItem value={value} className="border border-gray-800 rounded-lg overflow-hidden bg-[#1a1a24]">
-      <AccordionTrigger className="px-6 py-4 hover:bg-gray-800/50 transition-colors font-medium">
+    <AccordionItem value={value} className="border border-gray-800 rounded-lg overflow-hidden bg-[#f5f5f5]">
+      <AccordionTrigger className="px-6 py-4 hover:bg-[#f5f5f5] text-black transition-colors font-medium">
         {question}
       </AccordionTrigger>
-      <AccordionContent className="px-6 py-4 text-gray-300">{answer}</AccordionContent>
+      <AccordionContent className="px-6 py-4 text-black">{answer}</AccordionContent>
     </AccordionItem>
   )
 }
