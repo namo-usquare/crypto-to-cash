@@ -1,11 +1,16 @@
 "use client"
+
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Check, Instagram, Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { ConnectWallet } from '@/components/ConnectWallet'
+import { Accordion } from "@/components/ui/accordion"
+import { Navbar } from "@/components/Navbar"
+import { StepCard } from "@/components/StepCard"
+import { TestimonialCard } from "@/components/TestimonialCard"
+import { FaqItem } from "@/components/FaqItem"
+import { ShoppingCartAnimation } from "@/components/ShoppingCartAnimation"
 
 export default function Home() {
   const fadeIn = {
@@ -50,31 +55,14 @@ export default function Home() {
         />
       </div>
 
-      {/* Navigation */}
-      <header className=" z-10 fixed w-full bg-black">
-        <nav className=" mx-auto px-8 mr-8 py-4 flex justify-end items-center">
-          <div className="flex items-center gap-8">
-            <Link href="#how-it-works" className="hover:text-green-400 transition-colors">
-              How it works
-            </Link>
-            <Link href="#testimonials" className="hover:text-green-400 transition-colors">
-              Testimonials
-            </Link> 
-            <Link href="#faqs" className="hover:text-green-400 transition-colors">
-              FAQs
-            </Link>
-          </div>
-          <ConnectWallet />
-        </nav>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative z-10  h-screen flex items-center justify-center ">
-        <div className="w-full mx-auto px-4 flex flex-row items-center text-center justify-around ">
-          <div className="flex flex-col items-center text-center ">
-            <div className="flex flex-col items-center text-center mb-12">
+      <section className="relative z-10 h-screen flex items-center justify-center pt-20 md:pt-0">
+        <div className="w-full mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-col items-center text-center max-w-2xl">
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-3xl"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               initial="hidden"
               animate="visible"
               variants={fadeIn}
@@ -82,7 +70,7 @@ export default function Home() {
               Cash Delivered for Your Crypto
             </motion.h1>
             <motion.p
-              className="text-xl md:text-2xl mb-8"
+              className="text-lg sm:text-xl md:text-2xl mb-8"
               initial="hidden"
               animate="visible"
               variants={fadeIn}
@@ -98,40 +86,39 @@ export default function Home() {
               variants={fadeIn}
               transition={{ delay: 0.2 }}
             >
-              <Button className="bg-green-400 hover:bg-green-500 text-black font-bold px-8 py-6 rounded-full text-lg">
+              <Button className="bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-4 sm:px-8 sm:py-6 rounded-full text-base sm:text-lg">
                 CONVERT CRYPTO NOW
               </Button>
             </motion.div>
-          </div>
             <motion.div
-              className="flex justify-center gap-8 mt-8"
+              className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <div className="flex items-center gap-2">
                 <div className="bg-green-400/20 p-1 rounded-full">
-                  <Check className="h-5 w-5 text-green-400" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
                 </div>
-                <span>Secure</span>
+                <span className="text-sm sm:text-base">Secure</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="bg-green-400/20 p-1 rounded-full">
-                  <Check className="h-5 w-5 text-green-400" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
                 </div>
-                <span>Fast</span>
+                <span className="text-sm sm:text-base">Fast</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="bg-green-400/20 p-1 rounded-full">
-                  <Check className="h-5 w-5 text-green-400" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
                 </div>
-                <span>Private</span>
+                <span className="text-sm sm:text-base">Private</span>
               </div>
             </motion.div>
           </div>
 
           <motion.div
-            className="flex justify-center"
+            className="hidden md:flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -156,8 +143,8 @@ export default function Home() {
 
           <div className="flex justify-between flex-col gap-16">
             <div className="flex flex-row items-center justify-between text-center mb-12">
-            <StepCard number={1} title="Send Crypto" delay={0} />
-            <StepCard number={2} title="Track Delivery" delay={0.2} />
+              <StepCard number={1} title="Send Crypto" delay={0} />
+              <StepCard number={2} title="Track Delivery" delay={0.2} />
             </div>
             <StepCard number={3} title="Receive Cash" delay={0.4} />
           </div>
@@ -368,142 +355,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
-}
-
-function ShoppingCartAnimation() {
-  return (
-    <motion.div
-      className="relative w-64 h-64"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      {/* Cart Base */}
-      <motion.svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <motion.path
-          d="M20 100 L200 100 L180 180 L40 180 Z"
-          stroke="#6366f1"
-          strokeWidth="2"
-          fill="transparent"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 1.5, delay: 0.2 }}
-        />
-        <motion.path
-          d="M140 100 C140 60, 180 60, 180 100"
-          stroke="#6366f1"
-          strokeWidth="2"
-          fill="transparent"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        />
-        <motion.circle
-          cx="70"
-          cy="190"
-          r="10"
-          fill="#a78bfa"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 2 }}
-        />
-        <motion.circle
-          cx="150"
-          cy="190"
-          r="10"
-          fill="#a78bfa"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 2.2 }}
-        />
-      </motion.svg>
-
-      {/* Cart Animation */}
-      <motion.div
-        animate={{
-          y: [0, -5, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-        }}
-        className="absolute inset-0"
-      />
-    </motion.div>
-  )
-}
-
-function StepCard({ number, title, delay }: { number: number; title: string; delay: number }) {
-  return (
-    <motion.div
-      className="flex flex-col items-center"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
-    >
-      <motion.div
-        className="flex items-center justify-center w-16 h-16 rounded-full bg-[#1a2e4c] text-green-400 text-xl font-bold mb-6"
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        {number}
-      </motion.div>
-      <h3 className="text-xl font-semibold">{title}</h3>
-    </motion.div>
-  )
-}
-
-function TestimonialCard({
-  stars,
-  text,
-  name,
-  location,
-  delay,
-}: {
-  stars: number
-  text: string
-  name: string
-  location: string
-  delay: number
-}) {
-  return (
-    <motion.div
-      className="bg-white p-6 rounded-xl"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -5 }}
-    >
-      <div className="flex text-green-400 mb-3">
-        {Array.from({ length: stars }).map((_, i) => (
-          <span key={i}>★</span>
-        ))}
-      </div>
-      <p className="text-black  mb-4">{text}</p>
-      <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gray-700 rounded-full overflow-hidden">
-          <Image src="/placeholder.svg?height=32&width=32" alt={name} width={32} height={32} />
-        </div>
-        <div>
-          <p className="font-medium">{name}</p>
-          <p className="text-sm text-black">{location}</p>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
-function FaqItem({ value, question, answer }: { value: string; question: string; answer: string }) {
-  return (
-    <AccordionItem value={value} className="border border-gray-800 rounded-lg overflow-hidden bg-[#f5f5f5]">
-      <AccordionTrigger className="px-6 py-4 hover:bg-[#f5f5f5] text-black transition-colors font-medium">
-        {question}
-      </AccordionTrigger>
-      <AccordionContent className="px-6 py-4 text-black">{answer}</AccordionContent>
-    </AccordionItem>
   )
 }
