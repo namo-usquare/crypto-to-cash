@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ConnectWallet } from "./ConnectWallet"
 import { usePathname } from "next/navigation"
 import { Home, Info, MessageSquare, HelpCircle } from "lucide-react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 /**
  * Navbar component that handles both desktop and mobile navigation
@@ -12,6 +12,7 @@ import { useEffect } from "react"
  */
 export const Navbar = () => {
   const pathname = usePathname()
+  const [currentHash, setCurrentHash] = useState("")
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -37,8 +38,21 @@ export const Navbar = () => {
       }
     }
 
+    // Update current hash when it changes
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash)
+    }
+
+    // Set initial hash
+    setCurrentHash(window.location.hash)
+
     document.addEventListener('click', handleAnchorClick)
-    return () => document.removeEventListener('click', handleAnchorClick)
+    window.addEventListener('hashchange', handleHashChange)
+    
+    return () => {
+      document.removeEventListener('click', handleAnchorClick)
+      window.removeEventListener('hashchange', handleHashChange)
+    }
   }, [])
 
   const isActive = (href: string) => {
@@ -46,7 +60,7 @@ export const Navbar = () => {
       return pathname === '/'
     }
     if (href.startsWith('#')) {
-      return window.location.hash === href
+      return currentHash === href
     }
     return pathname === href
   }
