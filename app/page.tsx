@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Check, Instagram, Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { ConnectWallet } from '@/components/ConnectWallet'
 
 export default function Home() {
   const fadeIn = {
@@ -63,7 +64,7 @@ export default function Home() {
               FAQs
             </Link>
           </div>
-          <Button className="bg-green-400 hover:bg-green-500 text-black font-medium rounded-full ml-8">Sign In</Button>
+          <ConnectWallet />
         </nav>
       </header>
 
