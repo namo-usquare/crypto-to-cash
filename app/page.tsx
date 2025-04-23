@@ -23,6 +23,8 @@ export default function Home() {
   }
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen bg-[#0c0c10] text-white overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 z-0 opacity-20">
@@ -55,7 +57,7 @@ export default function Home() {
         />
       </div>
 
-      <Navbar />
+ 
 
       {/* Hero Section */}
       <section className="relative z-10 h-screen flex items-center justify-center pt-20 md:pt-0">
@@ -355,5 +357,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
