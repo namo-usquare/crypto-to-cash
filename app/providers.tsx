@@ -8,8 +8,8 @@ import '@rainbow-me/rainbowkit/styles.css'
 
 // Configure chains and client
 const config = getDefaultConfig({
-  appName: 'Crypto Cash',
-  projectId: 'YOUR_PROJECT_ID', // Replace with your WalletConnect project ID
+  appName: 'crypto-to-cash',
+  projectId: '9c77b641594233d257e2c8092ddceba9', // Replace with your WalletConnect project ID
   chains: [mainnet],
 })
 
