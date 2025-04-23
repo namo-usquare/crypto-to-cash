@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Navbar } from "@/components/Navbar";
 import { StepCard } from "@/components/StepCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { FaqItem } from "@/components/FaqItem";
 import { ShoppingCartAnimation } from "@/components/ShoppingCartAnimation";
 
@@ -58,7 +58,15 @@ export default function Home() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative z-10 h-screen flex items-center justify-center pt-20 md:pt-0">
+        <section 
+          className="relative z-10 h-screen flex items-center justify-center pt-20 md:pt-0"
+          style={{
+            backgroundImage: "url('/images/grid.png')",
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <div className="w-full mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="flex flex-col items-center text-center max-w-2xl">
               <motion.h1
@@ -139,6 +147,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               How it works
+              <span className="block w-16 h-1 bg-green-400 mx-auto mt-2"></span>
             </motion.h2>
 
             <div className="flex justify-between flex-col gap-16">
@@ -154,56 +163,72 @@ export default function Home() {
         {/* Testimonials */}
         <section id="testimonials" className="py-20 bg-[#0c0c10]">
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div
+            <div
               className="bg-[#1a1a24] rounded-2xl p-8 md:p-12"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              style={{
+                boxShadow: '-36.69px 36.69px 36.69px 0px #FFFFFF21 inset, 36.69px -36.69px 36.69px 0px #C2C2C221 inset',
+                backdropFilter: 'blur(78.5074234008789px)',
+              }}
             >
               <motion.h2
-                className="text-3xl font-bold text-center mb-12"
+                className="text-3xl text-green-400 font-bold text-center mb-12"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                What our clients{" "}
-                <span className="text-green-400 relative">
-                  say
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-green-400"></span>
-                </span>
+                What our clients say
+                <span className="block w-16 h-1 bg-green-400 mx-auto mt-2"></span>
+
               </motion.h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <TestimonialCard
-                  stars={5}
-                  text="From BTC to cash in under 2 hours. The courier was professional and discreet. Will definitely use again."
-                  name="Justin Morris"
-                  location="Business Bay, Dubai"
-                  delay={0}
-                />
-                <TestimonialCard
-                  stars={5}
-                  text="When my card stopped working abroad, they saved my trip. Converted ETH to cash while I was having lunch."
-                  name="Thomas K."
-                  location="Downtown Dubai"
-                  delay={0.2}
-                />
-                <TestimonialCard
-                  stars={5}
-                  text="Excellent rates and incredible tracking feature gave me lot of mind."
-                  name="Sarah L."
-                  location="Business Bay"
-                  delay={0.4}
-                />
-              </div>
-            </motion.div>
+              <TestimonialCarousel
+                testimonials={[
+                  {
+                    stars: 5,
+                    text: "From BTC to cash in under 2 hours. The courier was professional and discreet. Will definitely use again.",
+                    name: "Justin Morris",
+                    location: "Business Bay, Dubai"
+                  },
+                  {
+                    stars: 5,
+                    text: "When my card stopped working abroad, they saved my trip. Converted ETH to cash while I was having lunch.",
+                    name: "Thomas K.",
+                    location: "Downtown Dubai"
+                  },
+                  {
+                    stars: 5,
+                    text: "Excellent rates and incredible tracking feature gave me lot of mind.",
+                    name: "Sarah L.",
+                    location: "Business Bay"
+                  },
+                  {
+                    stars: 5,
+                    text: "Excellent rates and incredible tracking feature gave me lot of mind.",
+                    name: "Sarah L.",
+                    location: "Business Bay"
+                  },
+                  {
+                    stars: 5,
+                    text: "Excellent rates and incredible tracking feature gave me lot of mind.",
+                    name: "Sarah L.",
+                    location: "Business Bay"
+                  }
+                ]}
+              />
+            </div>
           </div>
         </section>
 
         {/* FAQs */}
-        <section id="faqs" className="py-20 bg-[#0c0c10]">
+        <section id="faqs" className="py-20 bg-[#0c0c10]"
+        style={{
+          backgroundImage: "url('/images/grid.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "-10% 50%",
+          backgroundRepeat: "no-repeat",
+        }}
+        >
           <div className="max-w-6xl mx-auto px-4">
             <motion.h2
               className="text-3xl font-bold text-center mb-12"
@@ -255,7 +280,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="py-16 bg-[#0c0c10] border-t border-gray-800">
+        <footer className="py-16 bg-[#f5f5f5] text-black border-t border-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-4 gap-12">
               <div>
@@ -264,7 +289,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="/"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className=" hover:text-green-400 transition-colors"
                     >
                       Home
                     </Link>
@@ -272,7 +297,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#how-it-works"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       How it works
                     </Link>
@@ -280,7 +305,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#testimonials"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       Testimonials
                     </Link>
@@ -288,7 +313,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#faqs"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       FAQs
                     </Link>
@@ -301,7 +326,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       Contact us
                     </Link>
@@ -309,7 +334,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       Privacy policy
                     </Link>
@@ -317,7 +342,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors"
+                      className="hover:text-green-400 transition-colors"
                     >
                       Terms of Services
                     </Link>
@@ -330,7 +355,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                      className="hover:text-green-400 transition-colors flex items-center gap-2"
                     >
                       <Instagram size={16} />
                       <span>Instagram</span>
@@ -339,7 +364,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                      className="hover:text-green-400 transition-colors flex items-center gap-2"
                     >
                       <MessageSquare size={16} />
                       <span>WhatsApp</span>
@@ -348,7 +373,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2"
+                      className="hover:text-green-400 transition-colors flex items-center gap-2"
                     >
                       <Mail size={16} />
                       <span>Email</span>
@@ -364,9 +389,9 @@ export default function Home() {
                   transition={{ duration: 0.6 }}
                 >
                   <Image
-                    src="/placeholder.svg?height=300&width=200"
+                    src="/images/cryptocurrency.png"
                     alt="Mobile App"
-                    width={200}
+                    width={300}
                     height={300}
                     className="mx-auto md:ml-0"
                   />
