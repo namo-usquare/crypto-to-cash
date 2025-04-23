@@ -69,7 +69,7 @@ export const Navbar = () => {
     <>
       {/* Desktop Navigation */}
       <header className="fixed w-full bg-black/80 backdrop-blur-sm z-50">
-        <nav className="mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
+        <nav className="ml-auto px-4 sm:px-8 py-4 flex gap-4 items-center justify-end">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
