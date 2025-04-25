@@ -5,18 +5,13 @@ import {
   ArrowDown,
   ArrowUp,
   ChevronDown,
-  Clock,
-  CreditCard,
-  LogOut,
   MessageCircle,
-  Package,
   Search,
-  Settings,
-  User,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ConnectWallet } from "@/components/ConnectWallet"
+import { DashboardSidebar} from "@/components/DashboardSidebar"
 
 export default function CryptoDashboard() {
   const [fromAmount, setFromAmount] = useState("10")
@@ -49,105 +44,18 @@ export default function CryptoDashboard() {
         <div className="flex items-center gap-4">
           <span className="text-gray-200">Hi, Prime</span>
           <ConnectWallet/>
-          {/* <Button className="bg-[#00ff96] hover:bg-[#00cc78] text-black font-medium rounded-full">Wallet</Button> */}
         </div>
       </header>
 
       <div className="flex justify-around">
         {/* Sidebar */}
-        <aside className="w-20 bg-[#0c0e18]/80 h-[calc(100vh-73px)] flex flex-col items-center">
-          <div className="flex flex-col items-center w-full pt-4">
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="bg-[#00ff96] w-14 h-14 rounded-full flex items-center justify-center">
-                <CreditCard className="h-6 w-6 text-black" />
-              </div>
-              <span className="text-xs text-[#00ff96] mt-1">Dashboard</span>
-            </div>
-
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00ff96]">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                >
-                  <path
-                    d="M7 10L12 15L17 10"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M12 3V15"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <span className="text-xs text-gray-400 mt-1">Exchange</span>
-            </div>
-
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00ff96]">
-                <Package className="h-6 w-6" />
-              </div>
-              <span className="text-xs text-gray-400 mt-1">Delivery</span>
-            </div>
-
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00ff96]">
-                <Clock className="h-6 w-6" />
-              </div>
-              <span className="text-xs text-gray-400 mt-1">History</span>
-            </div>
-
-            <div className="w-10 border-t border-green-900/20 my-2"></div>
-
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00ff96]">
-                <User className="h-6 w-6" />
-              </div>
-              <span className="text-xs text-gray-400 mt-1">Profile</span>
-            </div>
-
-            <div className="relative w-full flex flex-col items-center mb-6">
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-[#00ff96]">
-                <Settings className="h-6 w-6" />
-              </div>
-              <span className="text-xs text-gray-400 mt-1">Settings</span>
-            </div>
-          </div>
-
-          <div className="mt-auto mb-8">
-            <div className="relative w-full flex flex-col items-center">
-              <div className="bg-red-500/20 w-14 h-14 rounded-full flex items-center justify-center text-red-500">
-                <LogOut className="h-6 w-6" />
-              </div>
-              <span className="text-xs text-red-500 mt-1">Logout</span>
-            </div>
-          </div>
-        </aside>
+        <DashboardSidebar />
 
         {/* Main Content */}
-        <main className=" p-6">
+        <main className="p-6">
           <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6"
-         
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Balance Card */}
             <div className="lg:col-span-2 bg-[#0c0e18] border border-green-900/20 rounded-xl p-6"
              style={{
