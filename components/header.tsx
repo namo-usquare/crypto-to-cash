@@ -1,8 +1,8 @@
 export default function Header() {
   return (
     <header className="p-4 border-b border-[#2a3042]">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="flex items-center m-6 justify-between">
+        <div className="flex items-center gap-4 w-3/4">
           <div className="flex items-center">
             <div className="text-[#22c55e] mr-2">
               <svg
@@ -27,7 +27,7 @@ export default function Header() {
             <span className="text-2xl font-bold">Ultron</span>
           </div>
 
-          <div className="relative flex-1 max-w-xl">
+          <div className="relative w-full">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

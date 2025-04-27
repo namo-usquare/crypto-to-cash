@@ -72,11 +72,11 @@ export default function AmountScreen() {
 
         <div>
           <h3 className="text-lg mb-3">Amount to Convert</h3>
-          <div className="border border-[#2a3042] rounded-lg bg-[#1a1f2e] overflow-hidden">
+          <div className="border border-[#2a3042] rounded-lg bg-[#F5F5F526] overflow-hidden">
             <div className="p-4 border-b border-[#2a3042]">
-              <div className="flex justify-between text-sm text-gray-400">
+              <div className="flex justify-between text-sm text">
                 <span>You'll Convert</span>
-                <span>Max Available: 0.5432</span>
+                <span> <span className="text-green-400" >Max</span>  Available: 0.5432</span>
               </div>
               <div className="flex items-center mt-2">
                 <input

@@ -16,7 +16,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
       {steps.map((step) => (
         <div key={step.number} className="flex flex-col items-center">
           <div
-            className={`flex items-center justify-center w-16 h-16 rounded-full border-2 ${
+            className={`flex items-center justify-center w-12 h-12 rounded-full border-2 ${
               currentStep === step.number
                 ? "bg-[#22c55e] border-[#22c55e] text-black"
                 : currentStep > step.number

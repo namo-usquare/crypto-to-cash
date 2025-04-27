@@ -57,7 +57,7 @@ export function DashboardSidebar() {
 
   return (
     <SidebarProvider>
-      <Sidebar className="fixed left-28 top-1/2 -translate-y-1/2 h-fit w-20 rounded-full border-0 shadow-none bg-transparent">
+      <Sidebar className="fixed left-28 top-[60%] -translate-y-1/2 h-fit w-20 rounded-full border-0 shadow-none bg-transparent">
         <div className="absolute inset-0 rounded-full bg-[#0f1114] border-0 shadow-[0_0_15px_rgba(72,255,130,0.5)] overflow-hidden">
           <div className="absolute inset-0 rounded-full border border-[#48ff82]/30"></div>
         </div>

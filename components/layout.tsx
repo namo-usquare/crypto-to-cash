@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-[#0f1219] bg-grid-pattern text-white">
+    <div className="h-fit bg-[#0f1219] bg-grid-pattern text-white">
       <Header />
       <div className="flex">
         <DashboardSidebar />
