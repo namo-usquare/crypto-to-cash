@@ -3,16 +3,17 @@
 import Link from "next/link"
 import { ConnectWallet } from "./ConnectWallet"
 import { usePathname } from "next/navigation"
-import { Home, Info, MessageSquare, HelpCircle } from "lucide-react"
+import { Home, Info, MessageSquare, HelpCircle, Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 
 /**
- * Navbar component that handles both desktop and mobile navigation
+ * Navbar component that handles both desktop and mobile navigation with hamburger menu
  * @returns JSX.Element
  */
 export const Navbar = () => {
   const pathname = usePathname()
   const [currentHash, setCurrentHash] = useState("")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -34,6 +35,8 @@ export const Navbar = () => {
         
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' })
+          // Close mobile menu after clicking a link
+          setIsMobileMenuOpen(false)
         }
       }
     }
@@ -69,8 +72,9 @@ export const Navbar = () => {
     <>
       {/* Desktop Navigation */}
       <header className="fixed w-full bg-black/80 backdrop-blur-sm z-50">
-        <nav className="ml-auto px-4 sm:px-8 py-4 flex gap-4 items-center justify-end">
-          <div className="flex items-center gap-8">
+        <nav className=" flex items-center justify-between">
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -83,35 +87,43 @@ export const Navbar = () => {
               </Link>
             ))}
           </div>
+
+          {/* Mobile Hamburger Menu Button */}
+          <button
+            className="md:hidden text-white hover:text-green-400 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           <ConnectWallet />
         </nav>
       </header>
 
-      {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm border-t border-gray-800 z-50">
-        <div className="flex justify-around items-center py-2">
-          {navLinks.map((link) => {
-            const Icon = link.icon
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`flex flex-col items-center p-2 ${
-                  isActive(link.href) ? "text-green-400" : "text-white"
-                } hover:text-green-400 transition-colors`}
-              >
-                <Icon size={20} />
-                <span className="text-xs mt-1">{link.label}</span>
-              </Link>
-            )
-          })}
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40 pt-16">
+          <div className="flex flex-col items-center gap-6 p-6">
+            {navLinks.map((link) => {
+              const Icon = link.icon
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`flex items-center gap-2 text-lg ${
+                    isActive(link.href) ? "text-green-400" : "text-white"
+                  } hover:text-green-400 transition-colors`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Icon size={20} />
+                  <span>{link.label}</span>
+                </Link>
+              )
+            })}
+          </div>
         </div>
-      </nav>
-
-      {/* Mobile Connect Wallet Button - Fixed at top */}
-      <div className="md:hidden fixed top-0 right-0 p-4 z-50">
-        <ConnectWallet />
-      </div>
+      )}
     </>
   )
 } 

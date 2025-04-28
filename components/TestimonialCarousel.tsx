@@ -16,7 +16,7 @@ interface TestimonialCarouselProps {
 
 /**
  * TestimonialCarousel component displays testimonials in a carousel with glassmorphism effect
- * Shows 3 testimonials at a time with auto-scrolling
+ * Shows 1 testimonial on mobile and 3 on desktop with auto-scrolling
  * @param {TestimonialCarouselProps} props - Component props
  * @returns JSX.Element
  */
@@ -48,19 +48,14 @@ export const TestimonialCarousel = ({ testimonials }: TestimonialCarouselProps) 
   }, [emblaApi])
 
   return (
-    <div className="relative"
-    >
+    <div className="relative">
       <div
         className="overflow-x-hidden rounded-2xl"
         ref={emblaRef}
-        // style={{
-        //   boxShadow: '-36.69px 36.69px 36.69px 0px #FFFFFF21 inset, 36.69px -36.69px 36.69px 0px #C2C2C221 inset',
-        //   backdropFilter: 'blur(78.5074234008789px)',
-        // }}
       >
         <div className="flex">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="flex-[0_0_33.333%] min-w-0 px-4">
+            <div key={index} className="flex-[0_0_100%] md:flex-[0_0_33.333%] min-w-0 px-4">
               <TestimonialCard
                 {...testimonial}
                 delay={index * 0.2}

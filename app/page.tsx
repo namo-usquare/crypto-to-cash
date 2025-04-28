@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-[#0c0c10] text-white overflow-hidden">
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 z-0 opacity-20">
@@ -285,7 +285,7 @@ export default function Home() {
             <div className="grid grid-cols-4 gap-12">
               <div>
                 <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2"></ul>
                   <li>
                     <Link
                       href="/"
