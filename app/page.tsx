@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="min-h-screen bg-[#0c0c10] text-white overflow-hidden">
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 z-0 opacity-20">
