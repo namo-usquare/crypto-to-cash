@@ -22,13 +22,13 @@ export const TestimonialCard = ({
   delay,
 }: TestimonialCardProps) => {
   return (
-    <motion.div
+    <div
       className="bg-white pt-8 px-6 pb-6 rounded-xl relative mt-6"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -5 }}
+      // initial={{ opacity: 0, y: 20 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true }}
+      // transition={{ duration: 0.5, delay }}
+      // whileHover={{ y: -5 }}
     >
       {/* Quote Symbol */}
       <div className="absolute -top-6 left-6 w-10 h-10 bg-[#1a1a24] rounded-full flex items-center justify-center shadow-lg">
@@ -66,6 +66,6 @@ export const TestimonialCard = ({
           <p className="text-sm text-black">{location}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 } 

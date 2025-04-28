@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, Instagram, Mail, MessageSquare } from "lucide-react";
@@ -13,15 +12,6 @@ import { FaqItem } from "@/components/FaqItem";
 import { ShoppingCartAnimation } from "@/components/ShoppingCartAnimation";
 
 export default function Home() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <>
       <Navbar />
@@ -29,30 +19,12 @@ export default function Home() {
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute inset-0 bg-grid-pattern" />
-          <motion.div
+          <div
             className="absolute h-40 w-40 rounded-full bg-green-500/20 blur-3xl"
-            animate={{
-              x: [0, 100, 50, 200, 0],
-              y: [0, 50, 100, 50, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
             style={{ top: "20%", left: "10%" }}
           />
-          <motion.div
+          <div
             className="absolute h-60 w-60 rounded-full bg-blue-500/20 blur-3xl"
-            animate={{
-              x: [200, 100, 300, 100, 200],
-              y: [300, 200, 100, 200, 300],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
             style={{ top: "40%", right: "10%" }}
           />
         </div>
@@ -69,41 +41,18 @@ export default function Home() {
         >
           <div className="w-full mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="flex flex-col items-center text-center max-w-2xl">
-              <motion.h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-              >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 Cash Delivered for Your Crypto
-              </motion.h1>
-              <motion.p
-                className="text-lg sm:text-xl md:text-2xl mb-8"
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-                transition={{ delay: 0.1 }}
-              >
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl mb-8">
                 Anytime, Anywhere in Dubai
-              </motion.p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-                transition={{ delay: 0.2 }}
-              >
+              </p>
+              <div>
                 <Button className="bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-4 sm:px-8 sm:py-6 rounded-full text-base sm:text-lg">
                   CONVERT CRYPTO NOW
                 </Button>
-              </motion.div>
-              <motion.div
-                className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-8">
                 <div className="flex items-center gap-2">
                   <div className="bg-green-400/20 p-1 rounded-full">
                     <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
@@ -122,40 +71,29 @@ export default function Home() {
                   </div>
                   <span className="text-sm sm:text-base">Private</span>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div
-              className="hidden md:flex justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
+            <div className="hidden md:flex justify-center">
               <ShoppingCartAnimation />
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* How it works */}
         <section id="how-it-works" className="py-20 bg-gray-50 text-black">
           <div className="max-w-6xl mx-auto px-4">
-            <motion.h2
-              className="text-3xl font-bold text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <h2 className="text-3xl font-bold text-center mb-16">
               How it works
               <span className="block w-16 h-1 bg-green-400 mx-auto mt-2"></span>
-            </motion.h2>
+            </h2>
 
             <div className="flex justify-between flex-col gap-16">
               <div className="flex flex-row items-center justify-between text-center mb-12">
-                <StepCard number={1} title="Send Crypto" delay={0} />
-                <StepCard number={2} title="Track Delivery" delay={0.2} />
+                <StepCard number={1} title="Send Crypto" />
+                <StepCard number={2} title="Track Delivery" />
               </div>
-              <StepCard number={3} title="Receive Cash" delay={0.4} />
+              <StepCard number={3} title="Receive Cash" />
             </div>
           </div>
         </section>
@@ -170,17 +108,10 @@ export default function Home() {
                 backdropFilter: 'blur(78.5074234008789px)',
               }}
             >
-              <motion.h2
-                className="text-3xl text-green-400 font-bold text-center mb-12"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
+              <h2 className="text-3xl text-green-400 font-bold text-center mb-12">
                 What our clients say
                 <span className="block w-16 h-1 bg-green-400 mx-auto mt-2"></span>
-
-              </motion.h2>
+              </h2>
 
               <TestimonialCarousel
                 testimonials={[
@@ -230,24 +161,12 @@ export default function Home() {
         }}
         >
           <div className="max-w-6xl mx-auto px-4">
-            <motion.h2
-              className="text-3xl font-bold text-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <h2 className="text-3xl font-bold text-center mb-12">
               Frequently Asked Questions
               <span className="block w-40 h-1 bg-green-400 mx-auto mt-4"></span>
-            </motion.h2>
+            </h2>
 
-            <motion.div
-              className="max-w-3xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="space-y-4">
                 <FaqItem
                   value="item-1"
@@ -275,7 +194,7 @@ export default function Home() {
                   answer="We use end-to-end encryption for all communications. Our couriers are trained for discretion and don't carry any information about the source of funds or transaction details."
                 />
               </Accordion>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -382,12 +301,7 @@ export default function Home() {
                 </ul>
               </div>
               <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
+                <div>
                   <Image
                     src="/images/cryptocurrency.png"
                     alt="Mobile App"
@@ -395,7 +309,7 @@ export default function Home() {
                     height={300}
                     className="mx-auto md:ml-0"
                   />
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
