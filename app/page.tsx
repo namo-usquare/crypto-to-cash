@@ -10,34 +10,18 @@ import { StepCard } from "@/components/StepCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { FaqItem } from "@/components/FaqItem";
 import { ShoppingCartAnimation } from "@/components/ShoppingCartAnimation";
+import { BackgroundPattern } from "@/components/BackgroundPattern";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <div className="min-h-screen bg-[#0c0c10] text-white overflow-hidden">
-        {/* Background Grid Pattern */}
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-grid-pattern" />
-          <div
-            className="absolute h-40 w-40 rounded-full bg-green-500/20 blur-3xl"
-            style={{ top: "20%", left: "10%" }}
-          />
-          <div
-            className="absolute h-60 w-60 rounded-full bg-blue-500/20 blur-3xl"
-            style={{ top: "40%", right: "10%" }}
-          />
-        </div>
+        <BackgroundPattern />
 
         {/* Hero Section */}
         <section 
           className="relative z-10 h-screen flex items-center justify-center pt-20 md:pt-0"
-          style={{
-            backgroundImage: "url('/images/grid.png')",
-            backgroundSize: "contain",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
         >
           <div className="w-full mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="flex flex-col items-center text-center max-w-2xl">
