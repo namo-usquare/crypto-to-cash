@@ -72,7 +72,7 @@ export const Navbar = () => {
     <>
       {/* Desktop Navigation */}
       <header className="fixed w-full bg-black/80 backdrop-blur-sm z-50 px-4 py-2">
-        <nav className=" flex items-center justify-between">
+        <nav className=" flex items-center justify-between md:justify-end gap-8">
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

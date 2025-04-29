@@ -225,7 +225,7 @@ export default function TransactionHistory() {
   return (
     <Layout>
         {/* Main content */}
-        <div className="p-6 max-w-5xl mx-auto overflow-hidden rounded-lg">
+        <div className=" overflow-hidden rounded-lg">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">Transaction History</h1>
             <div className="relative" ref={filterRef}>

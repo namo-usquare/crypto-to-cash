@@ -1,4 +1,4 @@
-export const GridPattern = <svg width="1123" height="860" viewBox="0 0 1123 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const GridPattern = <svg width="100%" height="100%" viewBox="0 0 1123 860" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line x1="119.416" y1="-82" x2="119.415" y2="859.474" stroke="#3EFF8B" strokeOpacity="0.05" strokeWidth="3"/>
 <line x1="172.354" y1="-82" x2="172.354" y2="859.474" stroke="#3EFF8B" strokeOpacity="0.05" strokeWidth="3"/>
 <line x1="225.292" y1="-82" x2="225.292" y2="859.474" stroke="#3EFF8B" strokeOpacity="0.05" strokeWidth="3"/>
